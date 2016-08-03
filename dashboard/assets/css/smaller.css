@@ -1,0 +1,166 @@
+html, body {
+	height: 720px;
+	width: 1280px;
+	font-family: monospace;
+}
+.block {
+	padding: 2.5%;
+	position: fixed;
+}
+.clock {
+	background-color: rgb(42,42,42);
+	color: white;
+	height: 200px;
+	width: 350px;
+	text-align: center;
+	padding-top: 10px;
+	top: 0;
+	left: 0;
+}
+.clock  #clock {
+	font-size: 80px;
+	width: 100%;
+}
+.clock  #date {
+	font-size: 25px;
+	width: 100%;
+}
+.title {
+	background-color: rgb(0,77,98);
+	color: white;
+	height: 100px;
+	width: 384px;
+	font-size: 25px;
+	text-align: center;
+	left: 350px;
+	top: 0;
+}
+.weather {
+	background-color: rgb(0,166,212);
+	color: white;
+	height: 100px;
+	width: 396px;
+	left: 734px;
+	top: 0;
+}
+#inner {
+	position: fixed;
+	left: 350px;
+	top: 100px;
+	width: 780px;
+	height: 420px;
+}
+#eOutage {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 384px;
+	height: 100px;
+	text-align: center;
+	color: white;
+	font-size: 25px;
+	padding-top: 10px;
+	background-color: rgb(0,166,212);
+}
+#tempGraph {
+	position: fixed;
+	top: 520px;
+	left: 0;
+	width: 1280px;
+}
+.axis text { display: none; }
+.RackRearArea {
+	fill: white;
+}
+.ACBlowerArea {
+	fill: lightsteelblue;
+	fill-opacity: .5;
+}
+#graphLabel {
+	position: fixed;
+	right: 15px;
+	top: 530px;
+	color: white;
+	font-size: 25px;
+}
+#graphLabelMin {
+	position: fixed;
+	left: 5px;
+	top: 680px;
+	color: white;
+	font-size: 25px;
+}
+#graphLabelMax {
+	position: fixed;
+	left: 5px;
+	top: 530px;
+	color: white;
+	font-size: 25px;
+}
+.y.axis {
+	fill: rgb(0,77,98);
+}
+.twitter {
+	position: fixed;
+	top: 200px;
+	left: 0;
+	width: 350px;
+	height: 323px;
+}
+.twitter .tweetTime {
+	float: right;
+}
+.twitter .tweet {
+	padding: 5px;
+	color: white;
+	height: 30%;
+	overflow: hidden;
+}
+.twitter .twitterTitle {
+	height: 10%;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+}
+.twitter .Odd {
+	background-color: rgb(0,152,197);
+}
+.twitter .Even {
+	background-color: rgb(0,131,172);
+}
+.twitter .tweet a {
+	color: white;
+}
+#google {
+	position: absolute;
+	left: 1130px;
+	top: 75px;
+	height: 446px;
+	width: 150px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+}
+#google_iframe {
+	position: absolute;
+	top: -367px;
+	left: -25px;
+	width: 1000px;
+	height: 1200px;
+}
+
+.google-title {
+	background-color: rgba(0,166,212, .1);
+
+
+	position: fixed;
+	padding: 1%;
+
+	color: rgb(0,77,98);
+	font-weight: bold;
+	font-size: 18px;
+
+	top: 0;
+	width: 150px;
+	left: 1130px;
+}

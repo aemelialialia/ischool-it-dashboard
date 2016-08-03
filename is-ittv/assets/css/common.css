@@ -1,0 +1,20 @@
+body {
+	margin: 0;
+}
+
+.centered {
+	text-align: center;
+}
+
+#controls {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 99999999;
+}
+.controls {
+	cursor:pointer;
+}
+#settings {
+	z-index: 9999999999;
+}
