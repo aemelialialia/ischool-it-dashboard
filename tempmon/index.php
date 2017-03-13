@@ -1,70 +1,76 @@
 <?php
-	date_default_timezone_set('America/Los_Angeles');
-	
-	$timeframe = $_GET['timeframe'];
-	$timeframePretty = '';
+	date_default_timezone_set("America/Los_Angeles");
+	$fileName = "tempData/" . date("Y/F") . ".csv";
+
+	if(isset($_GET['variable']) && $_GET['variable']!=""){
+		$timeframe = $_GET["timeframe"];
+	} else {
+		$timeframe = "30min";
+	}
+
+	$timeframePretty = "";
 	switch ($timeframe) {
-		case 'year':
+		case "year":
 			$start = strtotime("-1 year");
-			$timeframePretty = 'Last Year';
+			$timeframePretty = "Last Year";
 			break;
-		case 'week':
+		case "week":
 			$start = strtotime("-1 week");
-			$timeframePretty = 'Last Week';
+			$timeframePretty = "Last Week";
 			break;
-		case 'day':
+		case "day":
 			$start = strtotime("-1 day");
-			$timeframePretty = 'Last Day';
+			$timeframePretty = "Last Day";
 			break;
-		case '12hour':
+		case "12hour":
 			$start = strtotime("-12 hour");
-			$timeframePretty = 'Last 12 Hours';
+			$timeframePretty = "Last 12 Hours";
 			break;
-		case '6hour':
+		case "6hour":
 			$start = strtotime("-6 hour");
-			$timeframePretty = 'Last 6 Hours';
+			$timeframePretty = "Last 6 Hours";
 			break;
-		case '2hour':
+		case "2hour":
 			$start = strtotime("-2 hour");
-			$timeframePretty = 'Last 2 Hours';
+			$timeframePretty = "Last 2 Hours";
 			break;
-		case 'hour':
+		case "hour":
 			$start = strtotime("-1 hour");
-			$timeframePretty = 'Last Hour';
+			$timeframePretty = "Last Hour";
 			break;
-		case '30min':
+		case "30min":
 			$start = strtotime("-30 min");
-			$timeframePretty = 'Last 30 Mins';
+			$timeframePretty = "Last 30 Mins";
 			break;
 	}
-	$csvFile = file('tempData.csv');
+	$csvFile = file($fileName);
 	$data = [];
 	foreach ($csvFile as $line) {
 		$lineData = str_getcsv($line);
 		$data[$lineData[0]] = [
 			$lineData[1],
 			$lineData[2]
-		]
+		];
 	}
 
 	// remove column header row
-	unset($data['timestamp']);
+	unset($data["timestamp"]);
 
 	$filteredData = array(
-		'RackRear' => array(),
-		'ACBlower' => array()
+		"RackRear" => array(),
+		"ACBlower" => array()
 	);
 
 	foreach ($data as $timestamp => $array) {
 		if (strval($timestamp) > strval($start)) {
-			$filteredData[RackRear][$timestamp] = $array[0];
-			$filteredData[ACBlower][$timestamp] = $array[1];
+			$filteredData["RackRear"][$timestamp] = $array[0];
+			$filteredData["ACBlower"][$timestamp] = $array[1];
 		}
 	}
 
 	$return = array(
-		'timeframe' => $timeframePretty,
-		'data' => $filteredData
+		"timeframe" => $timeframePretty,
+		"data" => $filteredData
 	);
 
 	print_r(json_encode($return));
