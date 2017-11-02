@@ -277,6 +277,7 @@ function search_tweets($query, $itr = 0, $find_cards = FALSE, $realtime = TRUE) 
 
 echo user_tweets('uwalert', 3);
 
+echo user_tweets('UW', 2);
 //echo search_tweets('obama');
 
 
